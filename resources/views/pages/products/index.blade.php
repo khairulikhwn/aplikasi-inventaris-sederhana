@@ -4,12 +4,12 @@
 @section('header')
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1>Produk</h1>
+            <h1>Produk/Barang</h1>
         </div>
         <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Beranda</a></li>
-                <li class="breadcrumb-item active">Produk</li>
+                <li class="breadcrumb-item active">Produk/Barang</li>
             </ol>
         </div>
     </div>
@@ -29,7 +29,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>produk</th>
+                                <th>Produk/Barang</th>
                                 <th>Deskripsi</th>
                                 <th>Kode</th>
                                 <th>Harga</th>
@@ -41,7 +41,7 @@
                         <tbody>
                             @foreach ($products as $product)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ ($products->currentPage() - 1) * $products->perPage() + $loop->index + 1 }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->description ?? '-' }}</td>
                                     <td>{{ $product->sku }}</td>
@@ -65,6 +65,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                </div>
+                <div class="card-footer">
+                    {{ $products->links('pagination::bootstrap-5') }}
                 </div>
             </div>
         </div>

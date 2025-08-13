@@ -11,7 +11,7 @@ $menus = [
         'icon' => 'fas fa-tasks',
     ],
     (object) [
-        'title' => 'Produk',
+        'title' => 'Produk/Barang',
         'path' => 'products',
         'icon' => 'fas fa-shopping-cart',
     ],
