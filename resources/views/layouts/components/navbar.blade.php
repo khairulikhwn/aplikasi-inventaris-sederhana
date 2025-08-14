@@ -12,12 +12,14 @@
 
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
-                <form action="/logout" method="post">
+                {{-- <form action="/logout" method="post">
                     @csrf
-                    @method('POST')
-                    <button type="submit" class="btn btn-outline-danger btn-sm">
-                        <i class="fa fa-power-off" aria-hidden="true"></i> Logout</button>
-                </form>
+                    @method('POST') --}}
+                <button type="submit" class="btn btn-outline-danger btn-sm" data-toggle="modal"
+                    data-target="#modal-logout">
+                    <i class="fa fa-power-off" aria-hidden="true"></i> Logout</button>
+                {{-- </form> --}}
             </ul>
         </nav>
         <!-- /.navbar -->
+        @include('pages.auth.logout-confirm')
